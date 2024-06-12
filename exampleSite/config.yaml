@@ -1,0 +1,23 @@
+baseURL: "https://example.com"
+languageCode: "en-us"
+title: "My Hugo Static JSON API"
+theme: "hugson"
+
+outputs:
+  home:
+    - "JSON"
+  section:
+    - "JSON"
+  taxonomy:
+    - "JSON"
+  term:
+    - "JSON"
+  page:
+    - "JSON"
+
+
+
+params:
+  author: "Your Name"
+  description: "A brief description of your site"
+  customParam: "Custom value"

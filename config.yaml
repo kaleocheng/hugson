@@ -1,0 +1,16 @@
+outputs:
+  home:
+    - "JSON"
+  section:
+    - "JSON"
+  taxonomy:
+    - "JSON"
+  term:
+    - "JSON"
+  page:
+    - "JSON"
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+

@@ -1,0 +1,48 @@
+{{- $page := (dict
+        "alternativeOutputFormats" .AlternativeOutputFormats
+        "content" .Content
+        "data" .Data
+        "date" .Date
+        "description" .Description
+        "draft" .Draft
+        "expiryDate" .ExpiryDate
+        "fuzzyWordCount" .FuzzyWordCount
+        "isHome" .IsHome
+        "isNode" .IsNode
+        "isPage" .IsPage
+        "isTranslated" .IsTranslated
+        "keywords" .Keywords
+        "kind" .Kind
+        "lang" .Lang
+        "language" .Language
+        "lastmod" .Lastmod
+        "linkTitle" .LinkTitle
+        "next" .Next
+        "nextInSection" .NextInSection
+        "outputFormats" .OutputFormats
+        "pages" .Pages
+        "permalink" .Permalink
+        "params" .Params
+        "plain" .Plain
+        "plainWords" .PlainWords
+        "prev" .Prev
+        "prevInSection" .PrevInSection
+        "publishDate" .PublishDate
+        "rawContent" .RawContent
+        "readingTime" .ReadingTime
+        "relPermalink" .RelPermalink
+        "section" .Section
+        "site" .Site
+        "summary" .Summary
+        "tableOfContents" .TableOfContents
+        "title" .Title
+        "translations" (partial "get-translations.json" .)
+        "truncated" .Truncated
+        "type" .Type
+        "weight" .Weight
+        "wordCount" .WordCount
+
+    ) -}}
+
+
+{{- $page | jsonify -}}

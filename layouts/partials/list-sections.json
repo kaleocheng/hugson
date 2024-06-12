@@ -1,0 +1,12 @@
+{{- $sections := slice -}}
+{{- range $section := .Site.Sections -}}
+    {{- $sections = $sections | append (dict
+        "name" .Title
+        "count" (len .Pages)
+        "permalink" .Permalink
+        "slug" .Type
+        "type" .Type
+        "kind" .Kind
+      ) -}}
+{{- end -}}
+{{- return (where $sections "count" "!=" 0) -}}

@@ -1,0 +1,1 @@
+{{- partial "list-tags.json" . |jsonify -}}

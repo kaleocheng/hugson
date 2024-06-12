@@ -1,0 +1,17 @@
+name: "hugson"
+license: "MIT"
+licenselink: "https://github.com/kaleocheng/hugson/blob/master/LICENSE"
+description: "Serve as a clean minimal JSON API for your Hugo posts"
+homepage: "https://github.com/kaleocheng/hugson"
+tags:
+  - "minimal"
+  - "clean"
+  - "api"
+  - "json"
+features:
+  - "blog"
+version: "1.0.0"
+
+author:
+  name: "Kaleo Cheng"
+  homepage: "https://github.com/kaleocheng"

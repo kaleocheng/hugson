@@ -1,0 +1,16 @@
+{{- $tags := slice -}}
+{{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
+  {{- $cnt := .Count -}}
+  {{- with $.Site.GetPage (printf "/tags/%s" $name) -}}
+    {{- $tags = $tags | append (dict
+        "name" $name
+        "count" $cnt
+        "permalink" .Permalink
+        "relPermalink" .RelPermalink
+        "slug" $name
+        "type" .Type
+        "kind" .Kind
+      ) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $tags -}}

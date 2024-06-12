@@ -1,0 +1,30 @@
+{{- /*
+#######################
+list-term JSON template
+
+This template is used to generate a JSON file for a term list page. it can be a section or a taxonomy term list page.
+for example a list of all posts in a section or a list of all posts with a specific tag.
+
+#######################
+*/ -}}
+
+{{- /*### get all pages ###*/ -}}
+{{- $pages := partial "get-pages.json" (dict "Pages" .Paginator.Pages) -}}
+
+{{- /*### returns term object ###*/ -}}
+{{- $term := (dict
+      "term" .Title
+      "type" .Type
+      "kind" .Kind
+      "permalink" .Permalink
+      "relPermalink" .RelPermalink
+      "pages" $pages
+      "count" (len $pages)
+      "lang" .Lang
+      "translations" (partial "get-translations.json" .)
+      "pagination" (partial "get-pagination.json" .)
+) -}}
+
+
+{{- return $term  -}}
+

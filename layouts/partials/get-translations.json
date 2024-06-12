@@ -1,0 +1,25 @@
+{{- $relPermalink := .RelPermalink -}}
+{{- $translations := slice -}}
+{{- range .Translations -}}
+    {{- $translation := . -}}
+    {{- $translationRelPermalink := replaceRE "^/[^/]+" (printf "/%s" $translation.Lang) $relPermalink -}}
+    {{- $translationDict := (dict
+        "date" $translation.Date
+        "lastmod" $translation.Lastmod
+        "publishDate" $translation.PublishDate
+        "expiryDate" $translation.ExpiryDate
+        "aliases" $translation.Aliases
+        "description" $translation.Description
+        "keywords" $translation.Keywords
+        "layout" $translation.Layout
+        "linkTitle" $translation.LinkTitle
+        "path" $translation.Path
+        "slug" $translation.Slug
+        "lang" $translation.Lang
+        "weight" $translation.Weight
+        "relPermalink" $translationRelPermalink
+    ) -}}
+    {{- $translations = $translations | append $translationDict -}}
+{{- end -}}
+{{- return $translations -}}
+

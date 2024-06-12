@@ -1,0 +1,8 @@
+{{- $home := (dict
+   "languages" (partial "list-languages.json" .)
+   "sections" (partial "list-sections.json" . )
+   "tags" (partial "list-tags.json" . )
+   "translations" (partial "get-translations.json" .)
+) -}}
+
+{{- $home | jsonify -}}

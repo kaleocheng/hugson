@@ -1,0 +1,23 @@
+{{- /*### get prev and next paginator link ###*/ -}}
+{{- $prevURL := "" -}}
+{{- $nextURL := "" -}}
+{{- if .Paginator.HasPrev -}}
+  {{- $prevURL = .Paginator.Prev.URL -}}
+{{- end -}}
+{{- if .Paginator.HasNext -}}
+  {{- $nextURL = .Paginator.Next.URL -}}
+{{- end -}}
+
+{{- /*### returns pagination object ###*/ -}}
+{{- $pagination := (dict
+    "currentPage" .Paginator.PageNumber
+    "totalPages" .Paginator.TotalPages
+    "pageSize" .Paginator.PageSize
+    "totalCount" .Paginator.TotalNumberOfElements
+    "hasPrev" .Paginator.HasPrev
+    "hasNext" .Paginator.HasNext
+    "nextRelPermalink" $nextURL
+    "prevRelPermalink" $prevURL
+) -}}
+{{- return $pagination -}}
+

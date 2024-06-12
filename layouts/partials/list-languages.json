@@ -1,0 +1,14 @@
+{{- $languages := slice -}}
+{{- range $page := $.AllTranslations -}}
+    {{- $languages = $languages | append (dict
+        "lang" .Lang
+        "languageName" .Language.LanguageName
+        "languageCode" .Language.LanguageCode
+        "title" .Language.Title
+        "languageDirection" .Language.LanguageDirection
+        "weight" .Language.Weight
+        "disabled" .Language.Disabled
+        "permalink" .Permalink
+      ) -}}
+{{- end -}}
+{{- return $languages -}}

@@ -1,0 +1,27 @@
+{{- /*
+#######################
+list all pages
+
+This template is used to generate a JSON file for all regular pages.
+#######################
+*/ -}}
+
+{{- $paginator := .Paginate .Site.RegularPages -}}
+{{- $pages := partial "get-pages.json" (dict "Pages" $paginator.Pages) -}}
+
+{{- /*### return a term object includes all regular pages ###*/ -}}
+{{- $term := (dict
+      "term" .Title
+      "type" .Type
+      "kind" "collection"
+      "permalink" .Permalink
+      "relPermalink" .RelPermalink
+      "pages" $pages
+      "count" (len $pages)
+      "translations" (partial "get-translations.json" .)
+      "lang" .Lang
+      "pagination" (partial "get-pagination.json" .)
+) -}}
+
+{{- return $term -}}
+

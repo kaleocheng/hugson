@@ -1,0 +1,20 @@
+{{- /*### get all pages ###*/ -}}
+{{- $pages := slice -}}
+{{- range $i, $page := .Pages -}}
+  {{- $pages = $pages | append (dict
+      "slug" $page.Params.slug
+      "title" $page.Title
+      "draft" $page.Draft
+      "content" $page.Content
+      "rawContent" $page.RawContent
+      "params" $page.Params
+      "permalink" $page.Permalink
+      "type" $page.Type
+      "kind" $page.Kind
+      "tags" $page.Params.tags
+      "date" $page.Date
+      "relPermalink" $page.RelPermalink
+  ) -}}
+{{- end -}}
+{{- return $pages -}}
+
